@@ -32,6 +32,11 @@ app.post('/sign-up', (req, res) => {
     res.send(name);
 })
 
+app.post('/sign-in', (req, res) => {
+    const email = req.body.email;
+    const password = req.body.password;
+})
+
 
 app.listen(port, function () {
     console.log(`Listening on http://${domain}:${port}/`)
