@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Home></Home>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -8,12 +8,12 @@
 
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
-import Home from './components/Home'
+// import Home from './components/Home'
 
 export default {
   name: 'App',
   components: {
-    Home
+    // Home
   }
 }
 </script>

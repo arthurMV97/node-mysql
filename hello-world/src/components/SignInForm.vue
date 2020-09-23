@@ -1,5 +1,6 @@
 <template>
   <div>
+    <p id="error">{{msg}}</p>
       <form action="">
           <b-input-group prepend="Email adress" class="mb-2 mr-sm-2 mb-sm-0 mt-4">
 <b-form-input id="inline-form-input" placeholder="Enter email" type="email" class="mb-5 mr-sm-5 mb-sm-0" required v-model="emailValue"></b-form-input>
@@ -16,17 +17,38 @@
 
 <script>
 import axios from 'axios';
+// import Dashboard from './Dashboard'
 
 export default {
 name: 'SignInForm',
+components: {
+  // Dashboard
+},
+data() {
+    return {
+        msg: "",
+        emailValue: "",
+        passwordValue: ""
+    }
+},
 methods: {
-  async checkData() {
+  checkData(evt) {
+    evt.preventDefault();
+    let that = this
     let dataToCheck = {
       email: this.emailValue,
       password: this.passwordValue
   }
 
-    await axios.post('http://localhost:8000/sign-in', dataToCheck);
+    axios.post('http://localhost:3000/sign-in', dataToCheck)
+          .then((res) => {
+            console.log(res);
+          this.$router.push('/dashboard')
+          
+        }).catch((err) => {
+          that.msg = "Adresse email ou mot de passe invalide"
+            console.log(err);
+        });
   
 
 }
@@ -35,5 +57,8 @@ methods: {
 </script>
 
 <style>
+#error {
+  color: red;
+}
 
 </style>
