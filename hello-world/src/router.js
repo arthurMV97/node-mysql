@@ -4,7 +4,8 @@ import Home from '@/components/Home.vue'
 const routes = [
     {
         path: "/dashboard",
-        component: Dashboard
+        component: Dashboard,
+        meta: {requireAuth: true}
     },
     {
         path: "/",
@@ -12,6 +13,9 @@ const routes = [
     },
 
 ]
+
+
+
 
 
 export default routes;

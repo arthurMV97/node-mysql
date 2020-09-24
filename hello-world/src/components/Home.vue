@@ -1,31 +1,29 @@
 <template>
-    <div id="app">
-  <b-jumbotron>
-    <template v-slot:header>Connexion interface</template>
+  <div id="app">
+    <b-jumbotron>
+      <template v-slot:header>Connexion interface</template>
 
-    <template v-slot:lead>
-     Below The formulary for signUp or signIn in our magnificient application ! 
-    </template>
+      <template v-slot:lead>
+        Below The formulary for signUp or signIn in our magnificient application
+        !
+      </template>
 
-    <hr class="my-4">
-  <FormHandler></FormHandler>
-
-  </b-jumbotron>
-    </div>
+      <hr class="my-4" />
+      <FormHandler></FormHandler>
+    </b-jumbotron>
+  </div>
 </template>
 
 <script>
-import FormHandler from './FormHandler'
+import FormHandler from "./FormHandler";
 
 export default {
-  name: 'Home',
+  name: "Home",
   components: {
-    FormHandler
+    FormHandler,
   },
-  props: {
-    
-  }
-}
+  props: {},
+};
 </script>
 
 <style scoped>
