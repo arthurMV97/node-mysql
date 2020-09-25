@@ -9,6 +9,9 @@
 
     <hr class="my-4">
 
+<b-button type="submit" variant="danger" class="mt-4" @click="deleteToken">
+  Sign Out
+  </b-button>
 
   </b-jumbotron>
     </div>
@@ -17,6 +20,14 @@
 <script>
 export default {
 name: 'Dashboard',
+methods: {
+  deleteToken() {
+    this.$store.dispatch('DELETE_TOKEN')
+    console.log(this.$router)
+    this.$router.push('/')
+
+  }
+}
 }
 </script>
 
