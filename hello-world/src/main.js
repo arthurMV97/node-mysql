@@ -10,11 +10,18 @@ import 'es6-promise/auto'
 import store from './store'
 
 
+
 const router = new VueRouter({routes}); 
 
 router.beforeEach((to, from, next) => {
-  if (to.matched.some(record => record.meta.requireAuth)) {
+  if (to.matched.some(record => record.meta.requiresAuth) && store.state.token.length > 0) {
+      next()
+
+    } else if (to.matched.some(record => record.meta.requiresAuth) && store.state.token.length === 0) {
+      next({path: "/"})
     
+  } else {
+    next()
   }
 })
 

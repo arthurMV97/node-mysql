@@ -5,7 +5,9 @@ const routes = [
     {
         path: "/dashboard",
         component: Dashboard,
-        meta: {requireAuth: true}
+        meta: {
+            requiresAuth: true
+        }
     },
     {
         path: "/",
